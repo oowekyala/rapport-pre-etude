@@ -1,0 +1,75 @@
+\documentclass[a4paper,12pt,twoside]{report}
+
+\input{preamble.tex}
+
+\input{NE_PAS_TOUCHER/couvresumesPFE.sty}
+
+
+
+\pretitle{\Huge \begin{center} \bfseries \color{belux}}
+\title{La France devrait-elle changer sa position sur le cannabis ?}
+\date{\today}
+\author{
+	Lucas \textsc{Clément} \and
+	Clément \textsc{Fournier} \and
+	Jordan \textsc{Le Bongoat} \and
+	Élise \textsc{Pottier}
+}
+\widowpenalty10000
+\setlength{\parskip}{4pt}
+
+  \bibliography{CannabisPSH}
+\begin{document}
+	
+		{
+			\pagestyle{empty}
+			\input{./SOURCES/cover.tex}
+	%		\cleardoublepage		
+		}
+
+\newgeometry{top=2cm,bottom=2cm,inner=3cm,outer=2cm}
+	{
+		\pagestyle{empty}
+	%	\maketitle
+		\tableofcontents
+        \thispagestyle{empty}
+        \input{./SOURCES/presentation.tex}
+		\listoffigures
+        \begingroup
+        \let\clearpage\relax
+        \listoftables
+        \endgroup
+        \thispagestyle{empty}
+		\cleardoublepage
+	}
+		
+  			\input{./SOURCES/introduction.tex}
+			\input{./SOURCES/partie1.tex}
+   			\input{./SOURCES/partie2.tex}
+  			\input{./SOURCES/partie3.tex}
+  			\input{./SOURCES/conclusion.tex}
+		\cleardoublepage 
+   %     \nocite{*}
+  %      \bibliographystyle{acm}
+      \printbibliography
+      
+      
+      \pagestyle{empty}
+      \cleardoublepage~
+      \newpage
+      ~\vspace{5cm}
+      \thispagestyle{empty}
+      
+      \begin{center}
+      	\textbf{Abstract}
+      \end{center}
+Should France change its stance about recreational marijuana? The French government strictly enforces the repression of marijuana production, distribution, and consumption. This policy has a visible impact on society: on top of its prohibitive costs, social issues, such as criminality or prison overcrowding, may be consequences of the policy. We investigated to what extent these problems really are caused by the repressive governmental stance, and whether or not the country could benefit from a change of policy.
+
+Many states already have more liberal legal frameworks for the use of marijuana. We used as our primary example that of the American state of Colorado, in which the consumption, growing and buying of marijuana has been legal for all citizens over 21 since 2014. We noted that the economic and social consequences of legalisation there were globally positive, considering for instance that criminality had dropped and some 10.000 to 18.000 jobs had been created. (related to marijuana?)
+
+We also compared the current repression policy to the one enforced in the 1920s in the USA on alcohol. Indeed, the situation back then bears much resemblance to the current one: like alcohol, cannabis may induce dependence and cause health problems (which in the case of cannabis, is currently disputed by the scientific community). Moreover, prohibition makes ground in both cases for organised traffic and gang violence.
+It appears that the legalisation on alcohol in the 1930s and on cannabis in Colorado, has greatly reduced criminality. Moreover, states have profited from legalisation, by being able to regulate the market and perceive taxes. However, these comparisons have made obvious the difference between depenalisation and legalisation, in a way we shall further explain in the full paper.
+
+
+        
+\end{document}
