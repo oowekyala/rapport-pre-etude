@@ -1,3 +1,29 @@
+
+# Created by https://www.gitignore.io/api/tex,linux,code
+
+### Code ###
+# Visual Studio Code - https://code.visualstudio.com/
+.settings/
+.vscode/
+tsconfig.json
+jsconfig.json
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### TeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -38,6 +64,7 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+*Notes.bib
 
 ## Auxiliary and intermediate files from other packages:
 # algorithms
@@ -219,3 +246,5 @@ TSWLatexianTemp*
 
 # expex forward references with \gathertags
 *-tags.tex
+
+# End of https://www.gitignore.io/api/tex,linux,code
