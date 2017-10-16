@@ -1,5 +1,59 @@
 \chapter{Technologies}
 
-    \section{Tincan  \guy{Pierre}}
+    \section{Experience API  \guy{Pierre}}
+
+        \subsection{Présentation et objectif}
+
+            Experience API, abrégée \emph{xAPI} et anciennement connue sous le nom de TinCan, est une norme pour la déclaration d’informations relatives à un processus d’apprentissage. Son objectif est de mettre en place une spécification pour la communication entre les plateformes d’apprentissage et le contenu des formations.
+
+            Experience API est une norme assez récente, sa première version datant de 2013. Elle vise à remplacer SCORM, un modèle plus ancien également utilisé pour normaliser les échanges de données dans le milieu du e-learning. SCORM permet notamment de tracer la complétion, le succès et le temps passé sur une activité.
+
+            xAPI offre cependant une plus grande souplesse dans les déclarations d’activités~: elle permet d’\emph{enregistrer des actions faites par une équipe} et non pas un seul apprenant, ou bien des activités annexes qui sortent du cadre de la formation en ligne (par exemple, lire un livre en rapport avec la formation). 
+
+            De plus, SCORM définit un format d’échange spécifiquement pour le Web, ce qui l’empêche de fonctionner avec des technologies plus récentes, comme les applications mobiles et l’Internet des objets. xAPI n’a pas ces limitations car \emph{son fonctionnement est indépendant du système}.
+
+        \subsection{Fonctionnement}
+
+            \def\myitem#1{\item \emph{\enquote{#1}}:\hspace{2mm}}
+
+            Une déclaration, ou \emph{statement}, représente la trace d’une activité d’apprentissage. Ils sont écrits au format \emph{JSON} (\emph{Javascript Object Notation}), qui permet de représenter simplement des objets sous forme de texte. Chaque déclaration doit renseigner au minimum les trois propriétés suivantes :
+            \begin{itemize}
+                \myitem{actor} la source de l’action, qui peut être un agent (un individu ou un système), ou bien un groupe d’agents;
+                \myitem{verb} l’action effectuée par \enquote{actor};
+                \myitem{object} l’activité ou agent sur lequel l’action est faite.
+            \end{itemize}
+
+            Il existe d’autres propriétés optionnelles, comme \enquote{context} qui donne plus d’informations sur le contexte dans lequel s’est déroulée l’activité, ou \enquote{result} qui détaille le résultat de l’activité.
+
+            Voici un exemple de déclaration valide, qui indique que Paul Durand a assisté à une conférence sur le e-learning :
+
+\begin{lstlisting}[language=json, numbers=none]
+{
+  "actor": "Paul Durand",
+  "verb": {
+    "id": "http://activitystrea.ms/schema/1.0/attend",
+    "display": { 
+      "en-US": "attended" 
+    }
+  },
+  "object": "E-learning conference"
+}
+\end{lstlisting}
+
+            L’exemple ci-dessus montre qu’il est possible de renseigner uniquement du texte pour une propriété, ou de donner davantage de détails, comme c’est le cas ici pour \enquote{verb}. L’ID du verbe est une URI (l’identifiant d’une ressource) qui fait référence au verbe \enquote{attend} défini dans l’Experience API Registry (une base de ressources en ligne qui permet d’éviter aux utilisateur de xAPI d’avoir à définir leurs propres ressources). L’attribut \enquote{display} indique comment afficher le verbe, et il est possible d’y définir un affichage qui dépend de la langue utilisée.
+
+            Les déclarations créées par xAPI sont enregistrés dans une base de données appelée \emph{LRS} (\emph{Learning Record Store}). Lorsque la plateforme d’apprentissage (aussi appelée \emph{LMS}, pour \emph{Learning Management System}) a besoin d’informations sur le déroulement de la formation d’un apprenant, elle effectue une requête vers le LRS.
+
+            Un LRS peut être intégré à un LMS, ou bien exister de façon séparée. L’important est de stocker l’information de façon normalisée, afin qu’elle soit indépendante du LMS, et puisse être interprétée par des agents extérieurs. Cela ouvre de nombreuses possibilités qui n’étaient pas envisageables avec un système de stockage d’informations spécifique à la plateforme d’apprentissage, par exemple le partage d’informations entre différentes plateformes, ou des études regroupant des données de sources diverses.
+
+        \subsection{Intérêt dans le cadre d’E-Yaka}
+
+            Experience API est une norme qui s’impose dans le monde de l’e-learning aujourd’hui. Comme nous l’avons décrit précédemment, elle permet une grande flexibilité d’utilisation.
+
+            Des bibliothèques existent dans différents langages de programmation pour faciliter l’utilisation de xAPI. E-Yaka est programmé en langage PHP, pour lequel existe la bibliothèque TinCanPHP.
+
+            Il semble donc judicieux d’utiliser Experience API dans le cadre de notre projet.
+
+
     \section{Greylog  \guy{Clément}}
     \section{Autres  \guy{Jordan}}
