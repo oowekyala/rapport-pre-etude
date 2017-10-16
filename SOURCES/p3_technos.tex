@@ -58,4 +58,55 @@
 
 
     \section{Greylog  \guy{Clément}}
-    \section{Autres  \guy{Jordan}}
+    
+    \section{Autres technologies}
+    
+        \subsection{Les cookies, une techno efficace pour le logging ?}
+        
+            Un cookie est un fichier de petite taille enregistré sur un ordinateur ou d'autres appareils afin d'autoriser un site web à vous reconnaître quand vous retournez sur ce site web en utilisant le même ordinateur et moteur de recherche, aussi bien le temps d'une visite (utilisant un \enquote{cookie de session}) ou lors de multiples visites (un \enquote{cookie persistant}). D'autres fichiers similaires fonctionnent de la même manière et nous utilisons le mot \enquote{cookie} pour faire référence à tous les fichiers qui collectent des informations de cette façon.
+            
+            Les cookies ont beaucoup d'usages différents, par exemple enregistrer vos préférences ou encore vous aider à mieux naviguer entre les différentes pages d'un site. Mais les cookies aident aussi les développeurs de site web à identifier quels contenus du site sont populaire et par la suite les aider à définitivement améliorer leur site et les services offerts à l'utilisateur.
+            
+            Il existe plusieurs variétés de types de cookies et de technologies de tracking, et une de ces variétés est les Tracking Cookies, qui permettent d'enregistrer les requêtes HTTP faites par une adresse IP (un utilisateur donc). 
+            
+            Exemple de Tracking Cookie simplifié: 
+            
+            212.959.120.150 - - [31/Jul/1999:16:58:41 -0400] \enquote{GET /last.gif HTTP/1.1} "http://www.une.org/usnews/home.htm" "Mozilla/4.0" "cookie_id=999999"
+            
+            On peut voir ici que l'utilisateur correspondant à l'IP 212.959.120.150 à demander à accéder au fichier last.gif sur la page d'accueil du site www.une.org
+            
+            Cependant, nous ne pourrons pas utiliser cette technologie pour plusieurs raisons, notamment pour une question d'éthique puisque les utilisateurs doivent donner leur consentement préalablement à l'insertion de ces cookies, ce qui pourrait nous empêcher de connaître leurs activités sur l'application. De plus, cela pose des complications technologiques puisque le principe même du cookie est d'être stocké sur l'ordinateur de l'utilisateur en local, empêchant donc la consultation de celui ci si l'utilisateur est hors ligne.
+        
+        \subsection{Apache Log4php 2}
+        
+        
+            Presque toutes les grosses applications utilisent leurs propres API de log et de traces. Les frameworks de logging tel que Log4php sont conçus pour limiter la consommation en ressources nécessaires à la mise en œuvre d'une API de logging.
+            
+            Log4php est un projet open source proposant une API qui permet aux développeurs d'utiliser et paramétrer un système de gestion de journaux (logs). Log4j gère plusieurs niveaux de gravités et les messages peuvent être envoyés dans plusieurs flux : un fichier sur disque, le journal des événements de Windows, une connexion TCP/IP, une base de données, etc ...
+        
+            Log4php utilise trois composants principaux pour assurer l'envoi de messages selon un certain niveau de gravité et contrôler à l'exécution le format et la ou les cibles de destination des messages :
+
+            \begin{itemize}
+                \item Category/Logger : ces classes permettent de gérer les messages associés à un niveau de gravité
+                \item Appenders : ils représentent les flux qui vont recevoir les messages de log
+                \item Layouts : ils permettent de formater le contenu des messages de log
+
+            \end{itemize}
+
+            Ces trois types de composants sont utilisés ensemble pour émettre des messages vers différentes cibles de stockage.
+
+            Ceci permet au framework de déterminer les messages qui doivent être loggués, la façon de les formater et vers quelle cible les messages seront envoyés.
+
+            La popularité de Log4J est largement liée à  ses nombreuses fonctionnalités extensibles et sa fiabilité. Cependant, il est le plus souvent utilisé en tant qu'outil de débug et de sécurité et nous paraît plus difficile à implémenter.
+        
+        \subsection{BEAMPULSE : Vers l'analyse d'interface}
+        
+            Il existe d'autres technologies intéressantes afin d'améliorer l'utilisation de l'application E-Yaka. Une  amélioration possible est l'augmentation de l'efficacité de l'interface web à l'aide d'outils tel que BEAMPULSE. BEAMPULSE est une solution afin d'analyser, améliorer et personnaliser votre site web à l'aide de fonctionnalités telles que :
+            \begin{itemize}
+                \item Des cartes de chaleurs (Heatmaps) : Heatmaps de clic et de scroll pour visualiser les incompréhensions et blocage sur chaque page;
+                \item Session Recording (Playback) : Enregistrer et observer le tracé des mouvements de la souris, les scrolls, les clics et les temps d'attente sur le site afin de les rejouer devant le développeur;
+                \item Personnalisation temps-réel : Modifier le contenu de vos pages ou déclencher automa\-tiquement des interactions ciblées en temps-réel.
+            \end{itemize}
+            
+            Cet objectif d'amélioration de l'interface ne fait pas partis de notre cahier des charges, mais il pourra cependant être envisagé si notre projet se termine en avance, ou encore comme suite du projet.
+        
