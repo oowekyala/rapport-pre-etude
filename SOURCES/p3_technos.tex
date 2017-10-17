@@ -57,7 +57,7 @@
             Il semble donc judicieux d’utiliser Experience API dans le cadre de notre projet.
 
 
-    \section{Graylog  \guy{Clément}}
+    \section{Greylog  \guy{Clément}}
     
     \section{Autres technologies}
     
@@ -70,14 +70,10 @@
             Il existe plusieurs variétés de types de cookies et de technologies de tracking, et une de ces variétés est les Tracking Cookies, qui permettent d'enregistrer les requêtes HTTP faites par une adresse IP (un utilisateur donc). 
             
             Exemple de Tracking Cookie simplifié: 
-
-EXEMPLE QUI FAIT BUGGUER LA COMPILATION
-			
             
-            %212.959.120.150 - - [31/Jul/1999:16:58:41 -0400] \enquote{GET /last.gif HTTP/1.1} "http://www.une.org/usnews/home.htm" "Mozilla/4.0" "cookieId=999999"
+            212.959.120.150 - - [31/Jul/1999:16:58:41 -0400] \enquote{GET /last.gif HTTP/1.1} "http://www.une.org/usnews/home.htm" "Mozilla/4.0" "cookie_id=999999"
             
-            
-            On peut voir ici que l'utilisateur correspondant à l'IP 212.959.120.150 à demandé à accéder au fichier last.gif sur la page d'accueil du site www.une.org
+            On peut voir ici que l'utilisateur correspondant à l'IP 212.959.120.150 à demander à accéder au fichier last.gif sur la page d'accueil du site www.une.org
             
             Cependant, nous ne pourrons pas utiliser cette technologie pour plusieurs raisons, notamment pour une question d'éthique puisque les utilisateurs doivent donner leur consentement préalablement à l'insertion de ces cookies, ce qui pourrait nous empêcher de connaître leurs activités sur l'application. De plus, cela pose des complications technologiques puisque le principe même du cookie est d'être stocké sur l'ordinateur de l'utilisateur en local, empêchant donc la consultation de celui ci si l'utilisateur est hors ligne.
         
