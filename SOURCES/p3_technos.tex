@@ -58,6 +58,64 @@
 
 
     \section{Graylog  \guy{Clément}}
+
+        \subsection{Présentation}
+    
+            Graylog est un système d'analyse de logs libre et open-source. Il offre une interface web sous-forme de tableau de bord (\emph{dashboard}), qui repose elle-même sur une API REST. Son architecture extensible et ses interfaces en font un candidat intéressant pour notre projet, cependant Graylog n'est pas autosuffisant: il doit être couplé à outil de collecte de logs, car il réalise seulement l'étape d'analyse.
+    
+
+        \subsection{Fonctionnalités}
+
+            \subsubsection{Interfaces}
+
+                \paragraph{Interface web}
+                    Le logiciel serveur de Graylog propose une interface web, qui permet de visualiser des données, et de configurer tous les aspects du serveur.
+                
+                \paragraph{Interface REST}
+                    L'interface Web repose entièrement sur une API REST très puissante, qui permettrait par exemple d'automatiser des tâches de maintenance sur le serveur.
+
+            \subsubsection{Présentation des données}
+              
+                \paragraph{Moteur de recherche}
+                    Graylog intègre un moteur de recherche (ElasticSearch), qui permet de formuler des requêtes élaborées et de trouver les entrées de log qui les satisfont.
+
+                \paragraph{Dashboards}
+                    Graylog présente une interface en ligne, centrée autours de \emph{dashboards}. Les dashboards de Graylogs sont configurables et permettent par exemple d'afficher le nombre d'entrée de log qui satisfont une certaine requête. La figure \ref{img:graylog-dash} est un exemple de dashboard. 
+                    
+                    Plusieurs widgets sont disponibles, mais leur configuration est limitée par la précision du langage de requête du moteur de recherche. 
+                    De plus, ces dashboards affichent des données sur l'état de l'application \emph{dans son ensemble}. L'état actuel de nos connaissances ne permet pas de dire s'ils pourront directement être utilisés pour l'interface de l'animateur. 
+                    
+                    \begin{figure}\centering
+                        \includegraphics[width=\textwidth]{images/graylog-dash.png}
+                        \caption{Exemple de dashboard Graylog}
+                        \label{img:graylog-dash}
+                    \end{figure}
+
+            \subsubsection{Traitement des données}
+                
+                Un serveur Graylog reçoit et gère les données d'une application entière. Graylog définit plusieurs abstractions pour les manipuler.
+                
+                \paragraph{Streams (flots de données)} 
+                    Les \emph{streams} Graylog catégorisent et redirigent des messages en temps réel, pendant leur traitement. L'administrateur peut définir des règles pour rediriger les messages qui satisfont une certaine condition dans un stream. Les messages peuvent ensuite être transmis à un autre système, ou à une chaîne de traitement.
+
+                \paragraph{Chaînes de traitement (pipelines)}
+                    Une chaîne de traitement définit une séquence d'opérations de filtrage et de traitement, auxquelles les messages en entrée de la pipeline sont soumis. Les instructions de traitement sont écrites en Java, et offrent donc une large marge de manoeuvre.
+
+
+            \subsubsection{Réception de données}
+
+                \paragraph{GELF}
+                    Graylog définit son propre format de message: \emph{GELF}, ou \emph{Graylog Extended Log Format}. Ce format de données est conçu pour pallier aux limitations de \emph{syslog}, un autre format de données qui est le standard \emph{de facto} depuis les années 80. Un message GELF est une chaîne JSON comportant un certain nombre de champs obligatoires. Les messages GELF peuvent être envoyés par UDP, ce qui permet de communiquer facilement avec le serveur de log. Plusieurs librairies pour Symfony 2 supportent l'envoi de messages GELF à un serveur Graylog.
+
+                \paragraph{Autres sources}
+                    D'autres types de messages sont supportés, y compris Syslog, ou du texte brut. Il paraît cependant difficile de supporter le format xAPI.
+
+        \subsection{Application à E-Yaka}
+
+            Graylog dispose de nombreuses fonctionnalités attrayantes, y compris des interfaces puissantes, et une grande extensibilité. Cependant l'interface Web du serveur Graylog ne pourra pas être utilisée telle qu'elle, puisqu'il semble difficile de l'intégrer directement dans E-Yaka. Il semble cependant qu'elle faciliterait le travail d'un administrateur.
+
+            L'usage de Graylog impliquerait de plus la sélection d'un outil de collecte de messages pour Symfony. Il en existe plusieurs qui supportent GELF, comme par exemple Monotone (intégré par défaut à Symfony 2), ou FluentD, un outil open-source spécialisé. Ces solutions sont très bien documentées et il semble possible de les implémenter facilement.
+
     
     \section{Autres technologies}
     
