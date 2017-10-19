@@ -72,10 +72,6 @@
     \section{Cahier des charges  \guy{Arnaud pour rédaction}}
 
         \subsection{Collecte de traces}
-
-            % Rajouter liste des questions auxquelles on doit répondre 
-            %  Essayer de les trier ou regrouper en catégories
-            %  Essayer de rajouter des images pour rendre plus digeste
             
             Ce projet consiste en une analyse du comportement des utilisateurs de l’application E-Yaka avec deux objectifs majeurs. Le premier objectif est d’améliorer l’ergonomie de l’application en étudiant le comportement des utilisateurs dans l’application. Le second est d’apporter des informations supplémentaires à l’encadrant de la partie, sur les différents joueurs, au cours de la partie.
             
@@ -92,13 +88,13 @@
             L’application évalue les performances des apprenants à travers les quizz. Analyser les traces concernant les erreurs au quizz peut nous permettre de mettre en avant des défauts de l’ergonomie de l’application et de les corriger ainsi. De même, étudier l’assiduité des joueurs ou encore le temps qu’ils passent sur l’application peut permettre de détecter des potentiels décrocheurs et ainsi prévenir l’encadrant au cours de la partie pour qu’il prévienne le décrochage.
         
         \subsection{Analyse des traces}
-            % Spécifier que analyse statistique c’est si on a le temps et ça va être compliqué  /
+        
+            L’analyse des traces consiste donc en une analyse des fichiers de logs obtenus. L’analyse doit répondre à des questions concernant l’application ou l’utilisateur. Pour chaque question posée, nous devons définir quelles traces peuvent nous permettre d’y répondre puis étudier ces traces en particulier. Une fois les traces étudiées, nous devons au moins être capable d’apporter des pistes de réponses. En effet, répondre de façon pertinente à chaque question n’est pas une tâche facile lorsque l’objectif est de comprendre le raisonnement d’un individu à partir d’un ensemble limité d’actions (clics, navigation, …). Pour certaines questions, en particulier sur le quizz, il sera plus facile d’apporter une réponse en observant par exemple la navigation de l’utilisateur pour voir s’il a trouvé la page contenant l’information recherchée, ou s’il n’a pas cherché et a directement répondu et s’est trompé.
             
-            L’analyse des traces consiste donc en une analyse des fichiers de logs obtenus. L’analyse doit répondre à des questions concernant l’application ou l’utilisateur. Pour chaque question posée, nous devons définir quelles traces peuvent nous permettre d’y répondre puis étudier ces traces en particulier. Une fois les traces étudiées, nous devons au moins être capable d’apporter des pistes de réponses. En effet, répondre de façon pertinente à chaque question n’est pas une tâche facile lorsque l’objectif est de comprendre le raisonnement d’un individu à partir d’un ensemble limité d’actions (clics, navigation, …). Pour certaines questions, en particulier sur le quizz, il sera plus facile d’apporter une réponse en observant par exemple la navigation de l’utilisateur pour voir s’il a trouvé la page contenant l’information recherchée, ou s’il n’a même pas cherché et a directement répondu et s’est trompé.
+            Nous ne disposons pas d'une liste spécifique de fonctionnalités à implémenter concernant l’amélioration de l’ergonomie ou l’étude du comportement utilisateur. Nous devons mettre en place l’analyse puis proposer des améliorations de l’application à partir de notre analyse.
+
+            \subsection{Mise en forme des résultats de l'analyse} 
+            Après avoir analysé les traces et proposé des pistes de réponses, nous devons les présenter à l'encadrant de la partie. Pour cela, nous utilisons un tableau de bord - \emph{dashboard} - accessible depuis l'application E-Yaka. Grâce à ce dashboard, nous pouvons présenter les résultats à l'encadrant de façon lisible en centralisant les informations obtenues. Par exemple, nous pouvons afficher des messages pour alerter l'encadrant de potientiels joueurs en situation de décrochage. Il est aussi possible de présenter un graphique avec les réponses des étudiants aux questions du quizz au tour précédent, la répartition par équipe des bonnes et mauvaises réponses et des pistes expliquant leurs erreurs. Ces informations apportées à l’encadrant en cours de partie ne sont pas définies pour l'instant. Elles proviendront de notre analyse et nous devrons conserver uniquement les éléments pertinents à présenter à l’encadrant. 
             
-            Nos encadrants ne nous ont pas donné d’objectifs précis à valider concernant l’amélioration de l’ergonomie ou l’étude du comportement utilisateur. Nous devons mettre en place l’analyse puis proposer des améliorations de l’application à partir de notre analyse. De même, les informations apportées à l’encadrant en cours de partie ne sont pas définies. Elles proviendront de notre analyse et nous devons réfléchir à des éléments pertinents à présenter à l’encadrant.
-            
-            Les objectifs du cahier des charges sont très larges: ils se concentrent sur l’amélioration de l’ergonomie de l’application, l’étude du comportement de l’utilisateur et l’apport d’informations à l’encadrant en cours de partie. Cependant, nous n’avons pas de liste exhaustive de fonctionnalités à implémenter dans l’application. Les fonctionnalités que nous allons proposer sont donc amenées à changer au cours du projet en fonction des résultats de nos analyses sur les traces utilisateur.
-            
-            % Rajouter partie sur exportation des données ou mise en forme des données /
+            Les objectifs du cahier des charges sont donc très larges: ils se concentrent sur l’amélioration de l’ergonomie de l’application, l’étude du comportement de l’utilisateur et l’apport d’informations à l’encadrant en cours de partie. Cependant, nous n’avons pas de liste exhaustive de fonctionnalités à implémenter dans l’application. Les fonctionnalités que nous allons proposer sont donc amenées à changer au cours du projet en fonction des résultats de nos analyses sur les traces utilisateur.
             
