@@ -1,6 +1,6 @@
-\chapter{Technologies considérées}
+\chapter{Technologies}
 
-    \section{Experience API}
+    \section{Experience API  \guy{Pierre}}
 
         \subsection{Présentation et objectif}
 
@@ -8,7 +8,7 @@
 
             Experience API est une norme assez récente, sa première version datant de 2013. Elle vise à remplacer SCORM, un modèle plus ancien également utilisé pour normaliser les échanges de données dans le milieu du e-learning. SCORM permet notamment de tracer la complétion, le succès et le temps passé sur une activité.
 
-            xAPI offre cependant une plus grande souplesse dans les déclarations d’activités~: elle permet d’\emph{enregistrer des actions faites par une équipe} et non pas un seul apprenant, ou bien des activités annexes qui sortent du cadre de la formation en ligne (par exemple, lire un livre en rapport avec la formation).
+            xAPI offre cependant une plus grande souplesse dans les déclarations d’activités~: elle permet d’\emph{enregistrer des actions faites par une équipe} et non pas un seul apprenant, ou bien des activités annexes qui sortent du cadre de la formation en ligne (par exemple, lire un livre en rapport avec la formation). 
 
             De plus, SCORM définit un format d’échange spécifiquement pour le Web, ce qui l’empêche de fonctionner avec des technologies plus récentes, comme les applications mobiles et l’Internet des objets. xAPI n’a pas ces limitations car \emph{son fonctionnement est indépendant du système}.
 
@@ -52,14 +52,16 @@
 
             Experience API est une norme qui s’impose dans le monde de l’e-learning aujourd’hui. Comme nous l’avons décrit précédemment, elle permet une grande flexibilité d’utilisation.
 
-            Des bibliothèques existent dans différents langages de programmation pour faciliter l’utilisation de xAPI. E-Yaka est programmé en langage PHP, pour lequel existe la bibliothèque TinCanPHP. Il semble donc judicieux d’utiliser Experience API dans le cadre de notre projet.
+            Des bibliothèques existent dans différents langages de programmation pour faciliter l’utilisation de xAPI. E-Yaka est programmé en langage PHP, pour lequel existe la bibliothèque TinCanPHP.
+
+            Il semble donc judicieux d’utiliser Experience API dans le cadre de notre projet.
 
 
-    \section{Graylog}
+    \section{Graylog  \guy{Clément}}
 
         \subsection{Présentation}
     
-            Graylog est un système d'analyse de logs libre et open-source. Il offre une interface web sous-forme de tableau de bord (\emph{dashboard}), qui repose elle-même sur une API REST. Son architecture extensible et ses interfaces en font un candidat intéressant pour notre projet, cependant Graylog n'est pas auto-suffisant : il doit être couplé à un outil de collecte de logs, car il réalise seulement l'étape d'analyse.
+            Graylog est un système d'analyse de logs libre et open-source. Il offre une interface web sous-forme de tableau de bord (\emph{dashboard}), qui repose elle-même sur une API REST. Son architecture extensible et ses interfaces en font un candidat intéressant pour notre projet, cependant Graylog n'est pas autosuffisant: il doit être couplé à outil de collecte de logs, car il réalise seulement l'étape d'analyse.
     
 
         \subsection{Fonctionnalités}
@@ -97,13 +99,13 @@
                     Les \emph{streams} Graylog catégorisent et redirigent des messages en temps réel, pendant leur traitement. L'administrateur peut définir des règles pour rediriger les messages qui satisfont une certaine condition dans un stream. Les messages peuvent ensuite être transmis à un autre système, ou à une chaîne de traitement.
 
                 \paragraph{Chaînes de traitement (pipelines)}
-                    Une chaîne de traitement définit une séquence d'opérations de filtrage et de traitement, auxquelles les messages en entrée de la pipeline sont soumis. Les instructions de traitement sont écrites en Java, et offrent donc une grande liberté au développeur.
+                    Une chaîne de traitement définit une séquence d'opérations de filtrage et de traitement, auxquelles les messages en entrée de la pipeline sont soumis. Les instructions de traitement sont écrites en Java, et offrent donc une large marge de manoeuvre.
 
 
             \subsubsection{Réception de données}
 
                 \paragraph{GELF}
-                    Graylog définit son propre format de message: \emph{GELF}, ou \emph{Graylog Extended Log Format}. Ce format de données est conçu pour pallier les limitations de \emph{Syslog}, un autre format de données qui est le standard \emph{de facto} depuis les années 80. Un message GELF est une chaîne JSON comportant un certain nombre de champs obligatoires. Les messages GELF peuvent être envoyés par UDP, ce qui permet de communiquer facilement avec le serveur de log. Plusieurs bibliothèques pour Symfony2 supportent l'envoi de messages GELF à un serveur Graylog.
+                    Graylog définit son propre format de message: \emph{GELF}, ou \emph{Graylog Extended Log Format}. Ce format de données est conçu pour pallier aux limitations de \emph{syslog}, un autre format de données qui est le standard \emph{de facto} depuis les années 80. Un message GELF est une chaîne JSON comportant un certain nombre de champs obligatoires. Les messages GELF peuvent être envoyés par UDP, ce qui permet de communiquer facilement avec le serveur de log. Plusieurs librairies pour Symfony 2 supportent l'envoi de messages GELF à un serveur Graylog.
 
                 \paragraph{Autres sources}
                     D'autres types de messages sont supportés, y compris Syslog, ou du texte brut. Il paraît cependant difficile de supporter le format xAPI.
@@ -112,18 +114,18 @@
 
             Graylog dispose de nombreuses fonctionnalités attrayantes, y compris des interfaces puissantes, et une grande extensibilité. Cependant l'interface Web du serveur Graylog ne pourra pas être utilisée telle qu'elle, puisqu'il semble difficile de l'intégrer directement dans E-Yaka. Il semble cependant qu'elle faciliterait le travail d'un administrateur.
 
-            L'usage de Graylog impliquerait de plus la sélection d'un outil de collecte de messages pour Symfony. Il en existe plusieurs qui supportent GELF, comme par exemple Monotone (intégré par défaut à Symfony2), ou FluentD, un outil open-source spécialisé. Ces solutions sont très bien documentées et il semble possible de les implémenter facilement.
+            L'usage de Graylog impliquerait de plus la sélection d'un outil de collecte de messages pour Symfony. Il en existe plusieurs qui supportent GELF, comme par exemple Monotone (intégré par défaut à Symfony 2), ou FluentD, un outil open-source spécialisé. Ces solutions sont très bien documentées et il semble possible de les implémenter facilement.
 
     
     \section{Autres technologies}
     
         \subsection{Les cookies, une technologie efficace pour la collecte de logs ?}
         
-            Un \emph{cookie} est un fichier de petite taille enregistré sur un ordinateur ou un autre appareil afin de permettre à un site web de reconnaître un utilisateur après sa première visite, s'il utilise le même ordinateur et moteur de recherche. Les cookies peuvent avoir une plus ou moins \emph{longue mémoire}, pouvant aussi bien conserver des informations sur la dernière visite de l'utilisateur (\enquote{cookie de session}) ou sur de multiples visites précédentes (\enquote{cookie persistant}). D'autres technologies fonctionnent de la même manière, et nous utilisons le mot \enquote{cookie} pour faire référence à tous les fichiers qui collectent des informations de cette façon.
+            Un \emph{cookie} est un fichier de petite taille enregistré sur un ordinateur ou un autre appareil afin de permettre à un site web de reconnaître un utilisateur après sa première visite s'il utilise le même ordinateur et moteur de recherche. Les cookies peuvent avoir plus ou moins \emph{longue mémoire}, pouvant aussi bien conserver des informations sur la dernière visite de l'utilisateur (\enquote{cookie de session}) ou sur de multiples visites précédentes (\enquote{cookie persistant}). D'autres technologies fonctionnent de la même manière, et nous utilisons le mot \enquote{cookie} pour faire référence à tous les fichiers qui collectent des informations de cette façon.
             
-            Les cookies ont beaucoup d'usages différents, par exemple enregistrer les préférences d'un utilisateur, ou encore l'aider à mieux naviguer entre les différentes pages d'un site. Les cookies permettent aussi notamment d'identifier les contenus les plus populaires d'un site web, et ainsi d'aider les développeurs à améliorer leur site et les services offerts à l'utilisateur.
+            Les cookies ont beaucoup d'usages différents, par exemple enregistrer vos préférences ou encore vous aider à mieux naviguer entre les différentes pages d'un site. Les cookies permettent aussi par exemple d'identifier les contenus les plus populaires d'un site web, et ainsi d'aider les développeurs à améliorer leur site et les services offerts à l'utilisateur.
             
-            Il existe plusieurs variétés de cookies et de technologies de traçage, dont par exemple les \emph{Tracking Cookies}, qui permettent d'enregistrer les requêtes HTTP envoyées par une adresse IP (un utilisateur). En voici un exemple simplifié : 
+            Il existe plusieurs variétés de cookies et de technologies de traçage, dont par exemple les \emph{Tracking Cookies}, qui permettent d'enregistrer les requêtes HTTP envoyées par une adresse IP (un utilisateur). En voici un exemple simplifié: 
 {\small			
 \begin{verbatim}            
 212.959.120.150 - - [31/Jul/1999:16:58:41 -0400] "GET /last.gif HTTP/1.1"
@@ -131,7 +133,7 @@
 \end{verbatim}
 }            
             
-            On peut voir ici que l'utilisateur correspondant à l'adresse IP \texttt{212.959.120.150} a demandé à accéder au fichier \texttt{last.gif} sur la page d'accueil du site \texttt{www.une.org}.
+            On peut voir ici que l'utilisateur correspondant à ladresse IP \texttt{212.959.120.150} à demandé à accéder au fichier \texttt{last.gif} sur la page d'accueil du site \texttt{www.une.org}.
             
             Cependant, nous ne pourrons pas utiliser cette technologie pour plusieurs raisons, notamment pour une question juridique, puisque les utilisateurs doivent consentir explicitement à l'utilisation de cookies pour les tracer, ce qui pourrait nous empêcher de connaître leurs activités sur l'application. De plus, cela pose des complications technologiques puisque, les cookies étant par définition stockés sur l'ordinateur de l'utilisateur, ils sont inaccessibles lorsque l'utilisateur est hors ligne.
         
@@ -147,29 +149,29 @@
 %
 % ^.
             
-            Log4php est un framework open-source proposant une API qui permet aux développeurs d'utiliser et de paramétrer un système de gestion de journaux (logs). Log4php gère plusieurs niveaux de gravités et les messages peuvent être redirigés vers plusieurs flux : un fichier sur disque, le journal des événements de Windows, une connexion TCP/IP, une base de données, etc.
+            Log4php est un framework open-source proposant une API qui permet aux développeurs d'utiliser et de paramétrer un système de gestion de journaux (logs). Log4php gère plusieurs niveaux de gravités et les messages peuvent être redirigés vers plusieurs flux : un fichier sur disque, le journal des événements de Windows, une connexion TCP/IP, une base de données, etc ...
         
             Log4php utilise trois composants principaux pour assurer l'envoi de messages selon un certain niveau de gravité et contrôler à l'exécution le format et la ou les cibles de destination des messages :
 
             \begin{itemize}
-                \item Category/Logger : ces classes permettent de gérer les messages associés à un niveau de gravité.
-                \item Appenders : ils représentent les flux qui vont recevoir les messages de log.
+                \item Category/Logger : ces classes permettent de gérer les messages associés à un niveau de gravité;
+                \item Appenders : ils représentent les flux qui vont recevoir les messages de log;
                 \item Layouts : ils permettent de formater le contenu des messages de log.
 
             \end{itemize}
 
             Ces trois types de composants sont utilisés ensemble pour émettre des messages vers différentes cibles de stockage. Ceci permet au framework de déterminer les messages qui doivent être loggués, la façon de les formater et vers quelle cible les messages seront envoyés.
 
-            La popularité de log4php est largement liée à ses nombreuses fonctionnalités extensibles et sa fiabilité. Cependant, il est le plus souvent utilisé en tant qu'outil de débogage et de sécurisation et nous paraît plus difficile à implémenter.
+            La popularité de log4php est largement liée à  ses nombreuses fonctionnalités extensibles et sa fiabilité. Cependant, il est le plus souvent utilisé en tant qu'outil de déboguage et de sécurisation et nous paraît plus difficile à implémenter.
         
         \subsection{BeamPulse : vers l'analyse d'interface}
         
-            Il existe d'autres technologies intéressantes afin d'améliorer l'utilisation de l'application E-Yaka. Une  amélioration possible est l'augmentation de l'efficacité de l'interface web à l'aide d'outils tel que BeamPulse. BeamPulse est une solution permettant d'analyser, d'améliorer et de personnaliser un site web à l'aide de fonctionnalités telles que :
+            Il existe d'autres technologies intéressantes afin d'améliorer l'utilisation de l'application E-Yaka. Une  amélioration possible est l'augmentation de l'efficacité de l'interface web à l'aide d'outils tel que BeamPulse. BeamPulse est une solution permettant d'analyser, améliorer et personnaliser votre site web à l'aide de fonctionnalités telles que :
             \begin{itemize}
-                \item Des cartes de chaleurs (\emph{heat maps}) : \emph{heat maps} de clic et de défilement pour visualiser les incompréhensions et blocages sur chaque page.
-                \item \emph{Session Recording} (\emph{playback}) : Enregistrer et observer le tracé des mouvements de la souris, les défilements, les clics et les temps d'attente sur le site afin de les rejouer devant le développeur.
-                \item Personnalisation temps-réel : Modifier le contenu de vos pages ou déclencher automatiquement des interactions ciblées en temps-réel.
+                \item Des cartes de chaleurs (\emph{heat maps}) : \emph{heat maps} de clic et de défilement pour visualiser les incompréhensions et blocages sur chaque page;
+                \item \emph{Session Recording} (\emph{playback}) : Enregistrer et observer le tracé des mouvements de la souris, les défilements, les clics et les temps d'attente sur le site afin de les rejouer devant le développeur;
+                \item Personnalisation temps-réel : Modifier le contenu de vos pages ou déclencher automa\-tiquement des interactions ciblées en temps-réel.
             \end{itemize}
             
-            Cet objectif d'amélioration de l'interface ne fait pas partie de notre cahier des charges, mais il pourra être envisagé si notre projet se termine en avance, ou encore comme suite du projet.
+            Cet objectif d'amélioration de l'interface ne fait pas partis de notre cahier des charges, mais il pourra cependant être envisagé si notre projet se termine en avance, ou encore comme suite du projet.
         
